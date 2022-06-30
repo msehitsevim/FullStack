@@ -9,7 +9,6 @@ router.get('/',async (req, res) =>{
    res.send(await posts.find({}).toArray());
 });
 
-
 //Add Post
 router.post('/', async(req, res) =>{
     const posts = await loadPostsCollection();
@@ -27,11 +26,9 @@ router.delete('/:id', async(req, res)=> {
     res.status(200).send();
 })
 
-
-
 async function loadPostsCollection(){
-    const client = await mongodb.MongoClient.connect('mongodb+srv://zibitke:Qsz4n6zt@cluster0.uphab2h.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser : true});
-
+    const client = await mongodb.MongoClient.connect('mongodb+srv://zibitke:oCGLd9gR8FCYGFgP@cluster0.kgioeds.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser : true});
+    
     return client.db('vue_express').collection('posts');
 }
 
